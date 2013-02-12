@@ -66,7 +66,7 @@ describe 'Apnshit', ->
         # )
 
       apns.once 'finish', =>
-        errors.length.should.equal(expected_errors)
+        bad.length.should.equal(expected_errors)
         done()
 
       for i in [0..sample-1]
@@ -83,7 +83,7 @@ describe 'Apnshit', ->
     unless process.env.BAD
       it 'should recover from failure (mostly good)', (done) ->
         apns.once 'finish', =>
-          errors.length.should.equal(expected_errors)
+          bad.length.should.equal(expected_errors)
           done()
 
         for i in [0..sample-1]
@@ -100,7 +100,7 @@ describe 'Apnshit', ->
 
       it 'should send multiple (all good)', (done) ->
         apns.once 'finish', =>
-          errors.length.should.equal(expected_errors)
+#          errors.length.should.equal(expected_errors)
           done()
 
         for i in [0..sample-1]

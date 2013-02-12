@@ -161,7 +161,7 @@ class Apnshit extends EventEmitter
 
     if notification
       @sending = true
-      @emit("send#start", JSON.stringify(notification))
+      @emit("send#start", JSON.stringify(notification), notification.device)
 
       data           = undefined
       encoding       = notification.encoding || "utf8"
